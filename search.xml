@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[javascript高级程序指南书中数组的思考]]></title>
+    <url>%2F2019%2F04%2F08%2Fjavascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E6%8C%87%E5%8D%97%E4%B9%A6%E4%B8%AD%E6%95%B0%E7%BB%84%E7%9A%84%E6%80%9D%E8%80%83%2F</url>
+    <content type="text"><![CDATA[思考原因javascript高级程序设计看到数组这里对下面这段代码不是很理解。12345var person = &#123; name: &quot;Nicholas&quot; &#125;;var people = [&#123; name: &quot;Nicholas&quot; &#125;];var morePeople = [person];alert(people.indexOf(person)); //-1alert(morePeople.indexOf(person)); //0 我觉得应该是这样的：1var person = &#123; name: &quot;Nicholas&quot; &#125;; 这段代码创建了一个person对象并且赋予了name属性。1var people = [&#123; name: &quot;Nicholas&quot; &#125;]; 这段代码定义了一个people数组里面定义了一个新的引用类型的对象，有name属性。1var morePeople = [person]; 这段代码同样定义了一个引用类型的数组，里面有一个对象，且此对象与person代表的对象相同。 注意：但是说people和morepeople不是一个东西，也就是说people[0]和morepeople[0]的值虽然看起来相同，但不是同一个对象。而morepeople和person是同一个对象（原因：直接引用了它）12person == people [0]//falseperson === people[0]//false 查了资料得indexOf的比较就是===。 总结 他们不是同一个对象，只是有个同名的属性，且值相同而已。（两个对象在内存中不是同一个对象），对象等于它本身。]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>前端</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F04%2F02%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
